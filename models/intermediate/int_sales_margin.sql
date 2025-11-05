@@ -19,4 +19,4 @@ select
     purchase_price,
     purchase_cost,
     ROUND(revenue - purchase_cost, 2) as margin 
-from cost 
+from cost as int_sales_margin
