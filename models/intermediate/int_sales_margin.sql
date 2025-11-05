@@ -1,6 +1,6 @@
 with cost as (
 select 
-    product_id,
+    product.products_id,
     revenue,
     quantity,
     purchase_price,
@@ -9,11 +9,11 @@ from
     {{ ref('stg_raw__sales') }} as sales
 inner join
     {{ ref('stg_raw__product') }} as product
-ON (sales.product_id = product.products_id)
+ON (sales.products_id = product.products_id)
 ) 
 
 select 
-    product_id,
+    products_id,
     revenue,
     quantity,
     purchase_price,
