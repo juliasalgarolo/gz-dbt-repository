@@ -1,6 +1,7 @@
 with cost as (
 select 
     product.products_id,
+    orders_id,
     revenue,
     quantity,
     purchase_price,
@@ -19,4 +20,4 @@ select
     purchase_price,
     purchase_cost,
     ROUND(revenue - purchase_cost, 2) as margin 
-from cost as int_sales_margin
+from cost
