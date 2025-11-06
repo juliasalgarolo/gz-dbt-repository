@@ -7,7 +7,9 @@ select  orders_id,
         quantity,
         shipping_fee,
         logcost,
-        ship_cost
+        ship_cost,
+        revenue,
+        purchase_cost
 from {{ ref('int_orders_margin') }} 
 join {{ ref('stg_raw__ship') }} 
     using (orders_id)
@@ -19,7 +21,9 @@ select  orders_id,
         SUM(logcost) as logcost,
         SUM(ship_cost) as ship_cost,
         SUM(quantity) as quantity,
-        SUM((margin + shipping_fee) - (logcost - ship_cost)) as operational_margin
+        ROUND(SUM((margin + shipping_fee) - (logcost - ship_cost)),2) as operational_margin,
+        SUM(revenue) as revenue,
+        SUM(purchase_cost) as purchase_cost
 from operational_margin_selected
 group by orders_id,
          date_date 
