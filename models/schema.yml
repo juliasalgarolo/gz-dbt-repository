@@ -50,7 +50,9 @@ sources:
               column_name: "date_date || campaign_key"        
         columns:
          - name: date_date
-         - name: paid_source		
+         - name: paid_source
+           tests:
+           - not_null		
          - name: campaign_key
          - name: camPGN_name
          - name: ads_cost
@@ -65,9 +67,17 @@ sources:
               column_name: "date_date || campaign_key"
         columns:
          - name: date_date
-         - name: paid_source		
+           tests:
+           - not_null
+         - name: paid_source	
+           tests:
+           - not_null	
          - name: campaign_key
+           tests:
+           - not_null
          - name: camPGN_name
+           tests:
+           - not_null
          - name: ads_cost
          - name: impression	
          - name: click
@@ -80,9 +90,17 @@ sources:
               column_name: "date_date || campaign_key"
         columns:
          - name: date_date
-         - name: paid_source		
+           tests:
+           - not_null
+         - name: paid_source
+           tests:
+           - not_null		
          - name: campaign_key
+           tests:
+           - not_null
          - name: camPGN_name
+           tests:
+           - not_null
          - name: ads_cost
          - name: impression	
          - name: click
@@ -95,9 +113,17 @@ sources:
               column_name: "date_date || campaign_key"
         columns:
          - name: date_date
-         - name: paid_source		
+           tests:
+           - not_null
+         - name: paid_source
+           tests:
+           - not_null		
          - name: campaign_key
+           tests:
+           - not_null
          - name: camPGN_name
+           tests:
+           - not_null
          - name: ads_cost
          - name: impression	
          - name: click
