@@ -1,4 +1,3 @@
-{{ config(materialized='table') }}
 with orders_per_day as (
 select  date_date,
         count(distinct orders_id) as nb_of_transactions,
