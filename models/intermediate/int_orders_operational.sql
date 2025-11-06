@@ -17,6 +17,7 @@ join {{ ref('stg_raw__ship') }}
 
 select  orders_id,
         date_date,
+        SUM(margin) as margin,
         SUM(shipping_fee) as shipping_fee,
         SUM(logcost) as logcost,
         SUM(ship_cost) as ship_cost,

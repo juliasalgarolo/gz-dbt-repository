@@ -1,15 +1,4 @@
-The finance team has communicated that they want the following data at a daily granularity:
-Date
-Total number of transactions
-Total revenue
-Average Basket
-Operational Margin
-Total purchase cost
-Total shipping fees
-Total log costs
-Total quantity of products sold.
-
-
+with orders_per_day as (
 select  date_date,
         count(distinct orders_id) as nb_of_transactions,
         round(sum(revenue),0) as revenue,
@@ -22,3 +11,17 @@ select  date_date,
         sum(quantity) as quantity
 from {{ ref('int_orders_operational') }} 
 group by date_date 
+) 
+
+select  date_date,
+        revenue,
+        margin,
+        operational_margin,
+        purchase_cost,
+        shipping_fee,
+        log_cost,
+        ship_cost,
+        quantity,
+        ROUND(revenue/NULLIF(nb_transactions, 0), 2) AS average_basket
+ FROM orders_per_day
+ ORDER BY date_date DESC
