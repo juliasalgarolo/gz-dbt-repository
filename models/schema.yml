@@ -45,6 +45,9 @@ sources:
       - name: adwords
         identifier: raw_gz_adwords
         description: information on paid source - adwords and their corresponding campaigns / one row of campaign key and name per day
+        tests: 
+           - unique:
+              column_name: "date_date || campaign_key"        
         columns:
          - name: date_date
          - name: paid_source		
@@ -57,6 +60,9 @@ sources:
       - name: bing
         identifier: raw_gz_bing
         description: information on paid source - bing and their corresponding campaigns / one row of campaign key and name per day
+        tests: 
+           - unique:
+              column_name: "date_date || campaign_key"
         columns:
          - name: date_date
          - name: paid_source		
@@ -69,6 +75,9 @@ sources:
       - name: criteo
         identifier: raw_gz_criteo
         description: information on paid source - criteo and their corresponding campaigns / one row of campaign key and name per day
+        tests: 
+           - unique:
+              column_name: "date_date || campaign_key"
         columns:
          - name: date_date
          - name: paid_source		
@@ -81,6 +90,9 @@ sources:
       - name: facebook
         identifier: raw_gz_facebook
         description: information on paid source - facebook and their corresponding campaigns / one row of campaign key and name per day
+        tests: 
+           - unique:
+              column_name: "date_date || campaign_key"
         columns:
          - name: date_date
          - name: paid_source		
